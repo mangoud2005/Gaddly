@@ -1,0 +1,201 @@
+body {
+    font-family: "Mada", sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.head1,.mardmozmn,.rotina,.arad {
+    font-size: 48px;
+    font-weight: 900;
+    color: #2c3e50;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.mardmozmn {
+    font-size: 25px;
+}
+
+.arad {
+    font-size: 30px;
+}
+
+.choose_dis2 {
+    width: 180px;
+    margin: 10px;
+    background:  rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+    border: 1px solid rgba(33, 29, 29, 0.3);
+
+}
+
+
+.logbuttoncontain {
+    position: relative; 
+    height: 60px;
+
+}
+.logbutton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  /* محتوى المودال */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.modal-content input {
+    display: block;
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.allform {
+    background: #f9fbfd;
+    border: 2px solid #e0e0e0;
+    margin: 0px 30px 30px 30px;
+    padding: 40px 10px;
+    box-shadow: 20px 20px 45px rgba(0,0,0,0.1);
+    border-radius: 20px;
+
+}
+
+
+.first-dis {
+    display: one;
+}
+.second-dis {
+    display: none;
+}
+.third-dis {
+    display: none;
+}
+.fourth-dis {
+    display: none;
+}
+.fifth-dis {
+    display: none;
+}
+.sixth-dis {
+    display: none;
+}
+.seventh-dis {
+    display: none;
+}
+.eighth-dis {
+    display: none;
+}
+.ninth-dis {
+    display: none;
+}
+.tenth-dis {
+    display: none;
+}
+.eleventh-dis {
+    display: none;
+}
+
+.choose_dis{
+    border-bottom: 3px solid black;
+}
+
+.Q{
+    margin: 10px;
+}
+
+.yes-no{
+    margin: 10px;
+}
+
+.que-section {
+    border-bottom: 3px solid black;
+}
+
+.rotina {
+    font-size: 30px;
+}
+
+
+button {
+    font-family: "Google Sans Code", monospace;
+    border: none;
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background-color: #939496;
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    box-shadow:
+    0 4px 6px -1px #488aec31,
+    0 2px 4px -1px #488aec17;
+    transition: all 0.6s ease;
+}
+
+.submit {
+    display: block;
+    margin: 20px auto; 
+    padding: 12px 24px;
+    background: #939496;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.submit:hover {
+    background: #4338ca;
+}
