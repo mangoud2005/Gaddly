@@ -21,4 +21,46 @@ window.onload = function () {
       document.getElementById("login-error").style.display = "block";
     }
   }
+
+  /////
+  
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("patientForm");
+  
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // prevent reload
+  
+      const patientData = {
+        name: document.querySelector(".name").value,
+        idNumber: document.querySelector(".idnumber").value,
+        medicalNumber: document.querySelector(".mednumber").value,
+        age: document.querySelector(".age").value,
+        clinic: document.querySelector(".clinic").value,
+        diagnosis: document.querySelector(".diagnosis").value,
+        medicine: document.querySelector(".med1").value,
+        regimen: document.querySelector(".reg1").value,
+        duration: document.querySelector(".dura1").value,
+      };
+  
+      try {
+        const res = await fetch("http://localhost:5000/api/patients", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(patientData),
+        });
+  
+        if (res.ok) {
+          alert("Patient added successfully!");
+          form.reset();
+        } else {
+          alert("Failed to save patient.");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("Something went wrong.");
+      }
+    });
+  });
+  
   
