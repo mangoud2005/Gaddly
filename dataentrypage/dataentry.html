@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
       </head>
     <body>
-      <div id="loginModal" class="login-modal">
+      <!-- <div id="loginModal" class="login-modal">
         <div class="login-modal-content">
           <h2>تسجيل دخول</h2>
           <input dir="rtl" type="text" id="username" placeholder="اسم المستخدم" required>
@@ -22,7 +22,7 @@
           </div>
           <p id="login-error">اسم المستخدم أو كلمة المرور غير صحيحة</p>
         </div>
-      </div>
+      </div> -->
         <h1 class="firsthead" >Add new patient</h1>
         <br>
     <main class="allform">  
@@ -51,7 +51,7 @@
             </div>
           </form>
 
-        <form>
+        <form id="patientForm">
             <div name="patient_details">
                 <input type="text" name="name" class="name" placeholder="Enter patient name" required><br>
                 <input type="number" name="ID number" class="idnumber" placeholder="Enter ID number" required><br>
@@ -362,7 +362,7 @@
                       <span class="btn__text">Upload Prescription</span>
                   </label>
                   
-                  <input id="file-upload" type="file" style="display:none;" required />
+                  <input id="file-upload" type="file" style="display:none;" accept=".png,.jpg,.jpeg,.pdf" required />
                   
                     <button type="submit" class="submit">Sumbit</button>
                 </div>
