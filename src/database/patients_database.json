@@ -1,0 +1,14 @@
+{
+    "111111111": {
+        "Name": "أحمد محمود",
+        "ID_Number": "111111111",
+        "Medical_Number": "MED-100",
+        "Age": 34,
+        "Clinic": "الباطنة",
+        "Diagnosis": "التهاب",
+        "Medicine": "أوميبرازول",
+        "Prescription_Images": [
+            "img1.jpg"
+        ]
+    }
+}
