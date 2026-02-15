@@ -1,3 +1,107 @@
+/* Basic page styling */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#loginModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#loginModal .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 350px;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+    padding-top: 50px;
+}
+
+
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Pricing plan styling */
+.pricing-plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.plan {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    max-width: 200px;
+}
+
+.plan h3 {
+    margin-top: 0;
+}
+
+.plan .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.plan .price span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
 body {
     font-family: "Mada", sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
@@ -50,29 +154,9 @@ body {
 }
 
 
-.modal {
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
   /* محتوى المودال */
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    width: 350px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+
 
 .modal-content input {
     display: block;
@@ -198,4 +282,125 @@ button {
 
 .submit:hover {
     background: #4338ca;
+}
+
+/* ===== Subscription Modal Upgrade ===== */
+
+#subscription-modal {
+    display: none;   /* ✅ يبقى مخفي */
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#subscription-modal .modal-content {
+    background: #ffffff;
+    padding: 50px 40px 40px 40px;
+    border-radius: 20px;
+    width: 900px;
+    max-width: 95%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+#subscription-modal h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.plan {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 25px;
+    flex: 1;
+    max-width: 260px;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.plan h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.price span {
+    font-size: 14px;
+    color: #777;
+}
+
+.yearly {
+    color: #666;
+    font-size: 18px;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.features li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.plan-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4A90E2, #357ABD);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.plan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74,144,226,0.3);
+}
+
+/* Recommended Plan */
+.plan.recommended {
+    border: 2px solid #4A90E2;
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #4A90E2;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
 }

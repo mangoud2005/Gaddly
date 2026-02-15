@@ -1,565 +1,646 @@
-<!doctype html>
-<html dir="rtl" >
-  <head>
-    <meta charset="UTF-8" />
-    <title> Gaddly| patient panel | prototype</title>
-    <style></style>
-    <script src="patient.js"></script>
-    <link rel="stylesheet" href="patient.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="loginModal" class="modal">
-      <div class="modal-content">
-        <h2>تسجيل الدخول</h2>
-        <input type="text" id="username" placeholder="اسم المستخدم" />
-        <input type="password" id="password" placeholder="كلمة المرور" />
-        <div class="logbuttoncontain">
-        <button class="logbutton"  onclick="login()" >تسجيل</button>
-        </div>
-        <p id="login-error" style="color: red; display: none;">بيانات الدخول غير صحيحة</p>
-      </div>
-    </div>
-        <p id="login-error" style="color: red; display: none;">اسم المستخدم أو كلمة المرور غير صحيحة</p>
-      </div>
-    </div>
-    
-    <h1 class="head1">تأكيد التجديد </h1>
-    <form>
-    <main class="allform">  
-      <div class="choose_dis">
-        <label class="mardmozmn" for="dis" style="padding: 10px;">المرض المزمن : </label>
-        <br>
-        <select class="choose_dis2" name="dis" id="disease-select" style="width:auto; 
-        margin: 10px;">
-          <optgroup  data-group="group1" label="أمراض الدم المزمنة">
-            <option value=" اللوكيميا">اللوكيميا</option>
-            <option value=" الأنيمياالمزمنة">الأنيميا المزمنة</option>
-            <option value=" الأنيميا الخبيثة"  >الأنيميا الخبيثة</option>
-            <option value=" نقص صفائح الدم">نقص صفائح الدم</option>
-            <option value=" الهيموفيليا">الهيموفيليا</option>
-          </optgroup>
-          <optgroup data-group="group2" label="أمراض الجهاز الدوري والقلب ومضاعفاتها  ">
-            <option value=" إرتفاع ضغط الدم المزمن">إرتفاع ضغط الدم المزمن</option>
-            <option value=" أمراض القلب المزمنة ومضاعفاتها و أمراض القلب الخلقية
-            ومضاعفاتها
-            ">أمراض القلب المزمنة ومضاعفاتها و أمراض القلب الخلقية
-            ومضاعفاتها
-            </option>
-            <option value=" أمراض الشرايين التاجية ومضاعفاتها ">أمراض الشرايين التاجية ومضاعفاتها </option>
-            <option value=" التهاب وإنسداد الأوعية الدموية ومضاعفاتها  ">التهاب وإنسداد الأوعية الدموية ومضاعفاتها  </option>
-            <option value=" مرض رينودز">مرض رينودز</option>
-            <option value=" مرض بيرجر">مرض بيرجر</option>
-          </optgroup>
-          <optgroup data-group="group3" label="أمراض الجهاز الهضمي  ">
-            <option value="  تمدد أوردة المرئ ومضاعفاتها"> تمدد أوردة المرئ ومضاعفاتها</option>
-            <option value=" قرحة المعدة والإثني عشر">قرحة المعدة والإثني عشر </option>
-            <option value=" الإلتهاب البريتوني المزمن ">الإلتهاب البريتوني المزمن </option>
-            <option value=" تضخم الطحال المصحوب بمضاعفات خطيرة  ">تضخم الطحال المصحوب بمضاعفات خطيرة  </option>
-            <option value=" أمراض الكبد المصحوبة بإختلال وظائف الكبد">أمراض الكبد المصحوبة بإختلال وظائف الكبد</option>
-            <option value=" اليرقان بأنواعه">اليرقان بأنواعه</option>
-            <option value=" إلتهاب البنكرياس المزمن">إلتهاب البنكرياس المزمن</option>
-            <option value=" إلتهاب القولون المتقرح">إلتهاب القولون المتقرح</option>
-          </optgroup>
-          <optgroup data-group="group4" label="أمراض الجهاز البولي والتناسلي    ">
-            <option  value=" الإلتهاب الكلوي المزمن">الإلتهاب الكلوي المزمن</option>
-            <option value=" هبوط كفاءة الكليتين  ">هبوط كفاءة الكليتين</option>
-            <option value=" النزيف الرحمى المزمن">النزيف الرحمى المزمن</option>
-          </optgroup>
-          <optgroup data-group="group5" label="أمراض الجهاز الحركي و الجهاز الضام المزمنة  ">
-            <option value=" مرض روماتويد و الأمراض المماثلة">مرض روماتويد و الأمراض المماثلة</option>
-            <option value="  مرض الحمى الروماتزمية"> مرض الحمى الروماتزمية</option>
-            <option value="  مرض تآكل الفقرات"> مرض تآكل الفقرات</option>
-            <option value=" تيبس مفاصل العمود الفقري">تيبس مفاصل العمود الفقري</option>
-            <option value="  أمراض ضمور العضلات"> أمراض ضمور العضلات</option>
-            <option value=" الإنزلاق الغضروفي المزمن">الإنزلاق الغضروفي المزمن</option>
-            <option value="  إلتهاب العظام المزمن"> إلتهاب العظام المزمن</option>
-          </optgroup>
-          <optgroup data-group="group6" label="أمراض الجهاز العصبي المزمنة  ">
-            <option value=" الصرع بأنوعه">الصرع بأنوعه</option>
-            <option value=" الشلل العضوي">الشلل العضوي</option>
-            <option value=" أمراض الجهاز العصبى العضوية المزمنة">أمراض الجهاز العصبى العضوية المزمنة</option>
-            <option value=" الأمراض النفسية والعقلية المزمنة">الأمراض النفسية والعقلية المزمنة</option>
-          </optgroup>
-          <optgroup data-group="group7" label="أمراض الجهاز التنفسي المزمنة ">
-            <option value=" تمدد الشعب الهوائية">تمدد الشعب الهوائية</option>
-            <option value=" تكيسات الرئة">تكيسات الرئة</option>
-            <option value=" الأنسكابات البلورية بأنواعها">الأنسكابات البلورية بأنواعها</option>
-            <option value=" الأمفزيما">الأمفزيما</option>
-          </optgroup>
-          <optgroup data-group="group8" label=" أمراض الغدد الصماء والتمثيل الغذائى و الجهاز الليمفاوى ">
-            <option value=" أمراض الغدد الجنسية">أمراض الغدد الجنسية</option>
-            <option value=" التسمم الدرقي">التسمم الدرقي</option>
-            <option value="  هبوط نشاط الغدة الدرقية"> هبوط نشاط الغدة الدرقية</option>
-            <option value="  مرض السكر ومضاعفاته"> مرض السكر ومضاعفاته</option>
-            <option value=" أمراض الغدة النخامية">أمراض الغدة النخامية</option>
-            <option value=" أمراض الغدد جارات الدرقية">أمراض الغدد جارات الدرقية</option>
-            <option value=" مرض القناع الأحمر المنتشر">مرض القناع الأحمر المنتشر</option>
-            <option value=" مرض النقرس">مرض النقرس</option>
-            <option value=" مرض هودجكين">مرض هودجكين</option>
-            <option value=" داء الفيل">داء الفيل</option>
-            <option value="  تضخم الغدد الليمفاوية لأسباب مزمنة"> تضخم الغدد الليمفاوية لأسباب مزمنة</option>
-            <option value=" أمراض غدد فوق الكلى">أمراض غدد فوق الكلى</option>
-          </optgroup>
-          <optgroup data-group="group9" label="الأمراض الجلدية المزمنة ">
-            <option value="  الإكزيما المزمنة"> الإكزيما المزمنة</option>
-            <option value=" الإكزيما العصبية">الإكزيما العصبية</option>
-            <option value=" الصدفية">الصدفية</option>
-            <option value=" البنفسج">البنفسج</option>
-            <option value=" مرض داء الفقاع">مرض داء الفقاع</option>
-            <option value=" البهاق">البهاق</option>
-            <option value=" الدرن الجلدي">الدرن الجلدي</option>
-            <option value=" سكليروديرما">سكليروديرما</option>
-            <option value="  مرض بهجت"> مرض بهجت</option>
-          </optgroup>
-          <optgroup data-group="group10" label=" أمراض العيون المزمنة ">
-            <option value=" أمراض تحلل الشبكية المزمنة">أمراض تحلل الشبكية المزمنة</option>
-            <option value=" إنفصال الشبكية">إنفصال الشبكية</option>
-            <option value=" الإلتهاب القزحي المزمن">الإلتهاب القزحي المزمن</option>
-            <option value=" الجلوكوما المزمنة">الجلوكوما المزمنة</option>
-            <option value=" أمراض العصب البصري المزمنة">أمراض العصب البصري المزمنة</option>
-            <option value=" إلتهاب الشبكية في مرض السكر">إلتهاب الشبكية في مرض السكر</option>
-          </optgroup>
-          <optgroup data-group="group11" label="الجذام">
-          <option  value="الجذام">الجذام</option>
-          </optgroup>
-        </select>
+<!DOCTYPE html>
+<html dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <title> Gaddly| data entry panel | prototype</title>
+        <style> </style>
+        <script></script> 
+        <link rel="stylesheet" href="patient.html">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+      </head>
+      <body>
+      
+          <!-- Main Content -->
+          <div class="main-content">
+            <head>
+                <meta charset="UTF-8" />
+                <title> Gaddly| patient panel | prototype</title>
+                <style></style>
+                <script src="patient.js"></script>
+                <link rel="stylesheet" href="patient.css">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap" rel="stylesheet">
+              </head>
+              <body>
+                <div id="loginModal" class="modal">
+                  <div class="modal-content">
+                    <h2>تسجيل الدخول</h2>
+                    <input type="text" id="idnumber" placeholder="الرقم القومي" />
+                    <input type="text" id="medicalnumber" placeholder="رقم بطاقه التأمين " />
+                    <div class="logbuttoncontain">
+                    <button class="logbutton"  onclick="login()" >تسجيل</button>
+                    </div>
+                    <p id="login-error" style="color: red; display: none;">بيانات الدخول غير صحيحة</p>
+                  </div>
+                </div>
+                    <p id="login-error" style="color: red; display: none;">اسم المستخدم أو كلمة المرور غير صحيحة</p>
+                  </div>
+                </div>
+                
+                <h1 class="head1">تأكيد التجديد </h1>
+                <form>
+                <main class="allform">  
+                  <div class="choose_dis">
+                    <label class="mardmozmn" for="dis" style="padding: 10px;">المرض المزمن : </label>
+                    <br>
+                    <select class="choose_dis2" name="dis" id="disease-select" style="width:auto; 
+                    margin: 10px;">
+                      <optgroup  data-group="group1" label="أمراض الدم المزمنة">
+                        <option value=" اللوكيميا">اللوكيميا</option>
+                        <option value=" الأنيمياالمزمنة">الأنيميا المزمنة</option>
+                        <option value=" الأنيميا الخبيثة"  >الأنيميا الخبيثة</option>
+                        <option value=" نقص صفائح الدم">نقص صفائح الدم</option>
+                        <option value=" الهيموفيليا">الهيموفيليا</option>
+                      </optgroup>
+                      <optgroup data-group="group2" label="أمراض الجهاز الدوري والقلب ومضاعفاتها  ">
+                        <option value=" إرتفاع ضغط الدم المزمن">إرتفاع ضغط الدم المزمن</option>
+                        <option value=" أمراض القلب المزمنة ومضاعفاتها و أمراض القلب الخلقية
+                        ومضاعفاتها
+                        ">أمراض القلب المزمنة ومضاعفاتها و أمراض القلب الخلقية
+                        ومضاعفاتها
+                        </option>
+                        <option value=" أمراض الشرايين التاجية ومضاعفاتها ">أمراض الشرايين التاجية ومضاعفاتها </option>
+                        <option value=" التهاب وإنسداد الأوعية الدموية ومضاعفاتها  ">التهاب وإنسداد الأوعية الدموية ومضاعفاتها  </option>
+                        <option value=" مرض رينودز">مرض رينودز</option>
+                        <option value=" مرض بيرجر">مرض بيرجر</option>
+                      </optgroup>
+                      <optgroup data-group="group3" label="أمراض الجهاز الهضمي  ">
+                        <option value="  تمدد أوردة المرئ ومضاعفاتها"> تمدد أوردة المرئ ومضاعفاتها</option>
+                        <option value=" قرحة المعدة والإثني عشر">قرحة المعدة والإثني عشر </option>
+                        <option value=" الإلتهاب البريتوني المزمن ">الإلتهاب البريتوني المزمن </option>
+                        <option value=" تضخم الطحال المصحوب بمضاعفات خطيرة  ">تضخم الطحال المصحوب بمضاعفات خطيرة  </option>
+                        <option value=" أمراض الكبد المصحوبة بإختلال وظائف الكبد">أمراض الكبد المصحوبة بإختلال وظائف الكبد</option>
+                        <option value=" اليرقان بأنواعه">اليرقان بأنواعه</option>
+                        <option value=" إلتهاب البنكرياس المزمن">إلتهاب البنكرياس المزمن</option>
+                        <option value=" إلتهاب القولون المتقرح">إلتهاب القولون المتقرح</option>
+                      </optgroup>
+                      <optgroup data-group="group4" label="أمراض الجهاز البولي والتناسلي    ">
+                        <option  value=" الإلتهاب الكلوي المزمن">الإلتهاب الكلوي المزمن</option>
+                        <option value=" هبوط كفاءة الكليتين  ">هبوط كفاءة الكليتين</option>
+                        <option value=" النزيف الرحمى المزمن">النزيف الرحمى المزمن</option>
+                      </optgroup>
+                      <optgroup data-group="group5" label="أمراض الجهاز الحركي و الجهاز الضام المزمنة  ">
+                        <option value=" مرض روماتويد و الأمراض المماثلة">مرض روماتويد و الأمراض المماثلة</option>
+                        <option value="  مرض الحمى الروماتزمية"> مرض الحمى الروماتزمية</option>
+                        <option value="  مرض تآكل الفقرات"> مرض تآكل الفقرات</option>
+                        <option value=" تيبس مفاصل العمود الفقري">تيبس مفاصل العمود الفقري</option>
+                        <option value="  أمراض ضمور العضلات"> أمراض ضمور العضلات</option>
+                        <option value=" الإنزلاق الغضروفي المزمن">الإنزلاق الغضروفي المزمن</option>
+                        <option value="  إلتهاب العظام المزمن"> إلتهاب العظام المزمن</option>
+                      </optgroup>
+                      <optgroup data-group="group6" label="أمراض الجهاز العصبي المزمنة  ">
+                        <option value=" الصرع بأنوعه">الصرع بأنوعه</option>
+                        <option value=" الشلل العضوي">الشلل العضوي</option>
+                        <option value=" أمراض الجهاز العصبى العضوية المزمنة">أمراض الجهاز العصبى العضوية المزمنة</option>
+                        <option value=" الأمراض النفسية والعقلية المزمنة">الأمراض النفسية والعقلية المزمنة</option>
+                      </optgroup>
+                      <optgroup data-group="group7" label="أمراض الجهاز التنفسي المزمنة ">
+                        <option value=" تمدد الشعب الهوائية">تمدد الشعب الهوائية</option>
+                        <option value=" تكيسات الرئة">تكيسات الرئة</option>
+                        <option value=" الأنسكابات البلورية بأنواعها">الأنسكابات البلورية بأنواعها</option>
+                        <option value=" الأمفزيما">الأمفزيما</option>
+                      </optgroup>
+                      <optgroup data-group="group8" label=" أمراض الغدد الصماء والتمثيل الغذائى و الجهاز الليمفاوى ">
+                        <option value=" أمراض الغدد الجنسية">أمراض الغدد الجنسية</option>
+                        <option value=" التسمم الدرقي">التسمم الدرقي</option>
+                        <option value="  هبوط نشاط الغدة الدرقية"> هبوط نشاط الغدة الدرقية</option>
+                        <option value="  مرض السكر ومضاعفاته"> مرض السكر ومضاعفاته</option>
+                        <option value=" أمراض الغدة النخامية">أمراض الغدة النخامية</option>
+                        <option value=" أمراض الغدد جارات الدرقية">أمراض الغدد جارات الدرقية</option>
+                        <option value=" مرض القناع الأحمر المنتشر">مرض القناع الأحمر المنتشر</option>
+                        <option value=" مرض النقرس">مرض النقرس</option>
+                        <option value=" مرض هودجكين">مرض هودجكين</option>
+                        <option value=" داء الفيل">داء الفيل</option>
+                        <option value="  تضخم الغدد الليمفاوية لأسباب مزمنة"> تضخم الغدد الليمفاوية لأسباب مزمنة</option>
+                        <option value=" أمراض غدد فوق الكلى">أمراض غدد فوق الكلى</option>
+                      </optgroup>
+                      <optgroup data-group="group9" label="الأمراض الجلدية المزمنة ">
+                        <option value="  الإكزيما المزمنة"> الإكزيما المزمنة</option>
+                        <option value=" الإكزيما العصبية">الإكزيما العصبية</option>
+                        <option value=" الصدفية">الصدفية</option>
+                        <option value=" البنفسج">البنفسج</option>
+                        <option value=" مرض داء الفقاع">مرض داء الفقاع</option>
+                        <option value=" البهاق">البهاق</option>
+                        <option value=" الدرن الجلدي">الدرن الجلدي</option>
+                        <option value=" سكليروديرما">سكليروديرما</option>
+                        <option value="  مرض بهجت"> مرض بهجت</option>
+                      </optgroup>
+                      <optgroup data-group="group10" label=" أمراض العيون المزمنة ">
+                        <option value=" أمراض تحلل الشبكية المزمنة">أمراض تحلل الشبكية المزمنة</option>
+                        <option value=" إنفصال الشبكية">إنفصال الشبكية</option>
+                        <option value=" الإلتهاب القزحي المزمن">الإلتهاب القزحي المزمن</option>
+                        <option value=" الجلوكوما المزمنة">الجلوكوما المزمنة</option>
+                        <option value=" أمراض العصب البصري المزمنة">أمراض العصب البصري المزمنة</option>
+                        <option value=" إلتهاب الشبكية في مرض السكر">إلتهاب الشبكية في مرض السكر</option>
+                      </optgroup>
+                      <optgroup data-group="group11" label="الجذام">
+                      <option  value="الجذام">الجذام</option>
+                      </optgroup>
+                    </select>
+            
+                  </div>
+                </form>
+                <form>
+                  <section class="que-section">
+                  <h1 class="rotina" style="text-align: center;"> اسئلة روتينيه</h1>
+                  <div name="qeustion">
+                    <label class="Q"> هل قمت بالذاهب للمستشفى خلال الشهرين السابقين ؟ </label>
+                    <br>
+                    <label>
+                      <input type="radio" name="answer1" id="yes" class="yes-no">نعم
+                    </label>
+                    <label>
+                      <input type="radio" name="answer1" id="no" class="yes-no" >لا
+                    </label>
+                    <br>
+                    <label class="Q"> هل تعرضت فقد الوعي في الشهرين السابقين ؟ </label>
+                    <br>
+                    <label>
+                      <input type="radio" name="answer2" id="yes" class="yes-no">نعم
+                    </label>
+                    <label>
+                      <input type="radio" name="answer2" id="no" class="yes-no">لا
+                    </label>
+                    <br>
+                    <label class="Q">هل تعرضت لنقل الدم او احد مشتقاتة في الشهرين السابقين  ؟ </label>
+                    <br>
+                    <label>
+                      <input type="radio" name="answer3" id="yes" class="yes-no">نعم
+                    </label>
+                    <label>
+                      <input type="radio" name="answer3" id="no" class="yes-no">لا
+                    </label>
+                    <br>
+                    <label class="Q">هل تعرضت لفقدان الرؤية جزئيا او كليا خلال الشهرين السابقين  ؟ </label>
+                    <br>
+                    <label>
+                      <input type="radio" name="answer4" id="yes" class="yes-no">نعم
+                    </label>
+                    <label>
+                      <input type="radio" name="answer4" id="no" class="yes-no">لا
+                    </label>
+                    <br>
+                    <label class="Q">هل تشعر بعدم استجابتك للدواء  ؟ </label>
+                    <br>
+                    <label>
+                      <input type="radio" name="answer5" id="yes" class="yes-no">نعم
+                    </label>
+                    <label>
+                      <input type="radio" name="answer5" id="no" class="yes-no">لا
+                    </label>
+                  </div>
+                </section>
+                </form>
+                <form class="first-dis">
+                  <h1 class="arad">الاعراض التي تشعر بها :</h1>
+                  <div class="choose_syptom">
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض لوكيميا </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثاني </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثالث </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الرابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الخامس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السادس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التامن </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التاسع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض العاشر </label>
+                  </div>  
+                </form>
+                <form class="second-dis">
+                  <h1>الاعراض التي تشعر بها :</h1>
+                  <div class="choose_syptom">
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض القلب </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثاني </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثالث </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الرابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الخامس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السادس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التامن </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التاسع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض العاشر </label>
+                  </div>  
+                </form>
+                <form class="third-dis">
+                <h1>الاعراض التي تشعر بها :</h1>
+                <div class="choose_syptom">
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض الهضمي </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض الثاني </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض الثالث </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض الرابع </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض الخامس </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض السادس </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض السابع </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض التامن </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض التاسع </label>
+                  <br> 
+                  <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                  <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="fourth-dis">     
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض تناسلي </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="fifth-dis">
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الحركي </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="sixth-dis">
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العصبي </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="seventh-dis">
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التنفسي </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="eighth-dis">
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الغدد </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="ninth-dis">
+              <h1>الاعراض التي تشعر بها :</h1>
+              <div class="choose_syptom">
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">الجلديه  </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثاني </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الثالث </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الرابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض الخامس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السادس </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض السابع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التامن </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض التاسع </label>
+                <br> 
+                <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                <label for="first_symptom">العرض العاشر </label>
+              </div>  
+                </form>
+                <form class="tenth-dis">
+                    <h1>الاعراض التي تشعر بها :</h1>
+                  <div class="choose_syptom">
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض العيون </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثاني </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثالث </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الرابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الخامس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السادس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التامن </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التاسع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض العاشر </label>
+                  </div>  
+                </form>
+                <form class="eleventh-dis">
+                  <h1>الاعراض التي تشعر بها :</h1>
+                  <div class="choose_syptom">
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الجذام </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثاني </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الثالث </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الرابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض الخامس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السادس </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض السابع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التامن </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض التاسع </label>
+                    <br> 
+                    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
+                    <label for="first_symptom">العرض العاشر </label>
+                  </div>  
+                </form>
+              <div >
+              </div>
+              </main>
+            
+              <script src="main.js"></script> 
+              </body>
+              <button class="submit" id="open-popup-button">تاكيد</button>
+          </div>
+      
+          <!-- The Modal Popup -->
+          <div id="subscription-modal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                  <span class="close-button">&times;</span>
+                  <h2>Choose Your Plan</h2>
+                  <div class="pricing-plans">
 
-      </div>
-    </form>
-    <form>
-      <section class="que-section">
-      <h1 class="rotina" style="text-align: center;"> اسئلة روتينيه</h1>
-      <div name="qeustion">
-        <label class="Q"> هل قمت بالذاهب للمستشفى خلال الشهرين السابقين ؟ </label>
-        <br>
-        <label>
-          <input type="radio" name="answer1" id="yes" class="yes-no">نعم
-        </label>
-        <label>
-          <input type="radio" name="answer1" id="no" class="yes-no" >لا
-        </label>
-        <br>
-        <label class="Q"> هل تعرضت فقد الوعي في الشهرين السابقين ؟ </label>
-        <br>
-        <label>
-          <input type="radio" name="answer2" id="yes" class="yes-no">نعم
-        </label>
-        <label>
-          <input type="radio" name="answer2" id="no" class="yes-no">لا
-        </label>
-        <br>
-        <label class="Q">هل تعرضت لنقل الدم او احد مشتقاتة في الشهرين السابقين  ؟ </label>
-        <br>
-        <label>
-          <input type="radio" name="answer3" id="yes" class="yes-no">نعم
-        </label>
-        <label>
-          <input type="radio" name="answer3" id="no" class="yes-no">لا
-        </label>
-        <br>
-        <label class="Q">هل تعرضت لفقدان الرؤية جزئيا او كليا خلال الشهرين السابقين  ؟ </label>
-        <br>
-        <label>
-          <input type="radio" name="answer4" id="yes" class="yes-no">نعم
-        </label>
-        <label>
-          <input type="radio" name="answer4" id="no" class="yes-no">لا
-        </label>
-        <br>
-        <label class="Q">هل تشعر بعدم استجابتك للدواء  ؟ </label>
-        <br>
-        <label>
-          <input type="radio" name="answer5" id="yes" class="yes-no">نعم
-        </label>
-        <label>
-          <input type="radio" name="answer5" id="no" class="yes-no">لا
-        </label>
-      </div>
-    </section>
-    </form>
-    <form class="first-dis">
-      <h1 class="arad">الاعراض التي تشعر بها :</h1>
-      <div class="choose_syptom">
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض لوكيميا </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثاني </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثالث </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الرابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الخامس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السادس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التامن </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التاسع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض العاشر </label>
-      </div>  
-    </form>
-    <form class="second-dis">
-      <h1>الاعراض التي تشعر بها :</h1>
-      <div class="choose_syptom">
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض القلب </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثاني </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثالث </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الرابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الخامس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السادس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التامن </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التاسع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض العاشر </label>
-      </div>  
-    </form>
-    <form class="third-dis">
-    <h1>الاعراض التي تشعر بها :</h1>
-    <div class="choose_syptom">
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض الهضمي </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض الثاني </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض الثالث </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض الرابع </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض الخامس </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض السادس </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض السابع </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض التامن </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض التاسع </label>
-      <br> 
-      <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-      <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="fourth-dis">     
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض تناسلي </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="fifth-dis">
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الحركي </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="sixth-dis">
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العصبي </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="seventh-dis">
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التنفسي </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="eighth-dis">
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الغدد </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="ninth-dis">
-  <h1>الاعراض التي تشعر بها :</h1>
-  <div class="choose_syptom">
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">الجلديه  </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثاني </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الثالث </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الرابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض الخامس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السادس </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض السابع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التامن </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض التاسع </label>
-    <br> 
-    <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-    <label for="first_symptom">العرض العاشر </label>
-  </div>  
-    </form>
-    <form class="tenth-dis">
-        <h1>الاعراض التي تشعر بها :</h1>
-      <div class="choose_syptom">
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض العيون </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثاني </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثالث </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الرابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الخامس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السادس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التامن </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التاسع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض العاشر </label>
-      </div>  
-    </form>
-    <form class="eleventh-dis">
-      <h1>الاعراض التي تشعر بها :</h1>
-      <div class="choose_syptom">
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الجذام </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثاني </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الثالث </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الرابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض الخامس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السادس </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض السابع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التامن </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض التاسع </label>
-        <br> 
-        <input type="checkbox" id="firstـsymptom" name="symptom" value="first_symptom">
-        <label for="first_symptom">العرض العاشر </label>
-      </div>  
-    </form>
-  <div >
-    <button class="submit" type="submit" >تاكيد</button>
-  </div>
-  </main>
+                    <!-- Basic -->
+                    <div class="plan">
+                        <h3>Basic</h3>
+                        <p class="price free">FREE</p>
+                
+                        <ul class="features">
+                            <li>Prescription renewal</li>
+                            <li>Delivery Features</li>
+                        </ul>
+                
+                        <a class="plan-btn"  href="../main.html"> Select Plan</a>
+                    </div>
+                
+                    <!-- Silver (Recommended) -->
+                    <div class="plan recommended">
+                        <div class="badge">Most Popular</div>
+                
+                        <h3>Silver</h3>
+                
+                        <p class="price">$19.99 <span>/biannual</span></p>
+                        <p class="price yearly">$199.99 <span>/annually</span></p>
+                
+                        <ul class="features">
+                            <li>All Basic Features</li>
+                            <li>AI Assistant</li>
+                            <li>Partnered Pharmacies</li>
+                        </ul>
+                
+                        <a class="plan-btn"  href="../main.html"> Select Plan</a>
+                    </div>
+                
+                    <!-- Gold -->
+                    <div class="plan">
+                        <h3>Gold</h3>
+                
+                        <p class="price">$49.99 <span>/biannual</span></p>
+                        <p class="price yearly">$299.99 <span>/annually</span></p>
+                
+                        <ul class="features">
+                            <li>Basic + Silver Features</li>
+                            <li>Chat with Doctors</li>
+                        </ul>
+                
+                        <a class="plan-btn"  href="../main.html"> Select Plan</a>
+                    </div>
+                
+                </div>
+                
+                  </div>
+              </div>
+          </div>
+      
+      </body>
+      
+<script src="patient.js"></script>
+      
+    </body>
 
-  <script src="main.js"></script> 
-  </body>
 </html>
-
