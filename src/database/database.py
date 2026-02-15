@@ -1,13 +1,12 @@
 import json
 import os
+from datetime import datetime
 
 DB_FILENAME = 'patients_database.json'
 
 def load_database():
-    """تقرأ قاعدة البيانات وترجع قاموساً (Dictionary) بدلاً من قائمة."""
     if not os.path.exists(DB_FILENAME):
         return {}
-    
     with open(DB_FILENAME, 'r', encoding='utf-8') as file:
         try:
             return json.load(file)
@@ -15,40 +14,50 @@ def load_database():
             return {}
 
 def save_database(data):
-    """تحفظ القاموس في ملف JSON."""
     with open(DB_FILENAME, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
-def add_customer(name, id_number, medical_number, age, clinic, diagnosis, medicine, prescription_images):
-    """تضيف مريضاً جديداً مع التأكد من تفرد رقم الهوية والرقم الطبي."""
+def check_and_update_subscriptions():
+    """
+    تقوم هذه الدالة بالمرور على جميع المرضى، وحساب الأيام المتبقية لاشتراكاتهم.
+    إذا انتهت المدة (الأيام = 0)، يتم تحويلهم تلقائياً إلى الخطة المجانية.
+    """
     db = load_database()
-    
-    # تحويل رقم الهوية إلى نص لضمان توافقه كمفتاح في JSON
-    id_str = str(id_number)
-    
-    # 1. التحقق من المفتاح الأساسي (رقم الهوية)
-    if id_str in db:
-        print(f"❌ فشل الإضافة: المريض صاحب رقم الهوية '{id_str}' مسجل بالفعل في قاعدة البيانات.")
-        return False
-        
-    # 2. التحقق من تفرد الرقم الطبي
-    for existing_id, patient_data in db.items():
-        if patient_data.get("Medical_Number") == medical_number:
-            print(f"❌ فشل الإضافة: الرقم الطبي '{medical_number}' مستخدم بالفعل لمريض آخر (رقم هويته: {existing_id}).")
-            return False
+    today = datetime.now().date()
+    database_updated = False # لمعرفة ما إذا احتجنا لحفظ تعديلات جديدة
 
-    # إضافة المريض (رقم الهوية هو المفتاح الأساسي للسجل)
-    db[id_str] = {
-        "Name": name,
-        "ID_Number": id_str,
-        "Medical_Number": medical_number,
-        "Age": age,
-        "Clinic": clinic,
-        "Diagnosis": diagnosis,
-        "Medicine": medicine,
-        "Prescription_Images": prescription_images
-    }
-    
-    save_database(db)
-    print(f"✅ تمت إضافة بيانات المريض '{name}' بنجاح!")
-    return True
+    print("⏳ جاري فحص وتحديث اشتراكات المرضى...")
+
+    for patient_id, patient_data in db.items():
+        subscription = patient_data.get("Subscription", {})
+        expiry_str = subscription.get("Expiry_Date", "غير محدد")
+
+        # نتخطى المرضى الذين ليس لديهم تاريخ انتهاء أو هم بالفعل على الخطة المجانية
+        if expiry_str != "غير محدد":
+            # تحويل نص التاريخ المحفوظ إلى كائن تاريخ (Date Object)
+            expiry_date = datetime.strptime(expiry_str, '%Y-%m-%d').date()
+            
+            # حساب الأيام المتبقية
+            remaining_days = (expiry_date - today).days
+
+            if remaining_days <= 0:
+                # انتهى الاشتراك: يتم تصفير الأيام وتفعيل الخطة المجانية
+                subscription["Plan"] = "خطة مجانية"
+                subscription["Status"] = "منتهي"
+                subscription["Expiry_Date"] = "غير محدد"
+                subscription["Remaining_Days"] = 0
+                
+                database_updated = True
+                print(f"🔄 المريض '{patient_data['Name']}' (هوية: {patient_id}): انتهى الاشتراك. تم التحويل للخطة المجانية.")
+            else:
+                # الاشتراك ما زال سارياً: نقوم بتحديث الأيام المتبقية فقط في قاعدة البيانات
+                if subscription.get("Remaining_Days") != remaining_days:
+                    subscription["Remaining_Days"] = remaining_days
+                    database_updated = True
+
+    # حفظ قاعدة البيانات فقط إذا حدثت تغييرات
+    if database_updated:
+        save_database(db)
+        print("✅ تم تحديث قاعدة البيانات بنجاح.")
+    else:
+        print("✅ جميع الاشتراكات سارية ولا تحتاج إلى تغيير.")
