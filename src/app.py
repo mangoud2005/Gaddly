@@ -7,7 +7,7 @@ CORS(app) # This tells your browser to allow the connection
 
 # Put your AI Studio key here
 genai.configure(api_key="AIzaSyAKPYL0Kx1VVQaHSmuV-Gmupka9JJBSW9I")
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-pro')
 
 # A health-check route so you know the server is alive
 @app.route('/', methods=['GET'])

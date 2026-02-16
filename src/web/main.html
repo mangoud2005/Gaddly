@@ -1,13 +1,11 @@
-
-
-
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <title>Gaddly</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="logo2.png" >
+    <link rel="icon" href="logo2.png">
 </head>
 <script>
     function toggleMenu() {
@@ -18,27 +16,27 @@
             menu.style.display = "flex";
         }
     }
-    </script>
-    
+</script>
+
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
-        <img src="logo2.png" alt="Gaddly Logo">
-        <span>Gaddly</span>
-    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo2.png" alt="Gaddly Logo">
+            <span>Gaddly</span>
+        </div>
 
-    <div class="menu-icon" onclick="toggleMenu()">
-        ☰
-    </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#">الرئيسية</a></li>
-        <li><a href="#">عن النظام</a></li>
-        <li><a href="#">تواصل</a></li>
-    </ul>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">عن النظام</a></li>
+            <li><a href="#">تواصل</a></li>
+        </ul>
 
-</nav>
+    </nav>
 
 
     <section class="hero">
@@ -57,5 +55,14 @@
         </div>
     </section>
 
+    <div id="chat-box"></div>
+
+    <input type="text" id="user-input" placeholder="Ask me anything...">
+    <button id="send-btn">Send</button>
+
+    <script src="main.js"></script>
+    <input type="text">
+
 </body>
+
 </html>
