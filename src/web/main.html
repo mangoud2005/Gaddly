@@ -1,0 +1,61 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaddly</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="logo2.png" >
+</head>
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("navLinks");
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "flex";
+        }
+    }
+    </script>
+    
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+        <img src="logo2.png" alt="Gaddly Logo">
+        <span>Gaddly</span>
+    </div>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">عن النظام</a></li>
+        <li><a href="#">تواصل</a></li>
+    </ul>
+
+</nav>
+
+
+    <section class="hero">
+        <div class="overlay">
+            <h1>Gaddly 💊</h1>
+            <p>نظام إدارة صيدليات والعيادات </p>
+
+            <div class="buttons">
+                <a href="dataentrypage/dataentry.html" class="btn">تسجيل مريض</a>
+                <a href="patienpage/patient.html" class="btn">تجديد روشتة</a>
+                <a href="sarfadwya/sarf.html" class="btn">صرف الأدوية</a>
+                <a href="deliverypage/delivery.html" class="btn">سائق دليفري</a>
+                <a href="mainpharmpage/mainpharm.html" class="btn">صيدلية تأمين</a>
+                <a href="pharmacypage/pharmacy.html" class="btn">صيدلية متعاقدة</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

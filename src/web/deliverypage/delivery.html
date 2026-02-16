@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Orders</title>
+  <link rel="stylesheet" href="delivery.css">
+</head>
+<body>
+
+<!-- ================= LOGIN POPUP ================= -->
+<div id="loginPopup" class="overlay">
+  <div class="modal">
+    <h2>Delivery Login</h2>
+
+    <input type="text" id="dName" placeholder="Your Name">
+    <input type="text" id="dPhone" placeholder="Phone Number">
+
+    <select id="dArea">
+      <option value="">Select Area</option>
+      <option value="nasr city">Nasr City</option>
+      <option value="mokattam">Mokattam</option>
+      <option value="obour">obour</option>
+      <option value="maddi">maddi</option>
+    </select>
+
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- ================= ORDERS SECTION ================= -->
+<div class="orders-container">
+  <h2>Your Orders</h2>
+
+  <div id="ordersList">
+
+
+    <div class="order-card" data-area="nasr city">
+      <h3>Order #1001</h3>
+      <p><strong>Customer:</strong> Ahmed Ali</p>
+      <p><strong>Phone:</strong> 01012373998</p>
+      <p><strong>Address:</strong> 24 abaas el akaad street bulding 9-nasr city </p>
+      <button onclick="openOrder('1001')">Open</button>
+    </div>
+
+    <div class="order-card" data-area="nasr city">
+      <h3>Order #1002</h3>
+      <p><strong>Customer:</strong> Mohamed Samy</p>
+      <p><strong>Phone:</strong> 011982038432</p>
+      <p><strong>Address:</strong>  14 makram enied street bulding 10 - nasr city</p>
+      <button onclick="openOrder('1002')">Open</button>
+    </div>
+
+    <div class="order-card" data-area="nasr city">
+        <h3>Order #1003</h3>
+        <p><strong>Customer:</strong> ziad ragab</p>
+        <p><strong>Phone:</strong> 01192205432</p>
+        <p><strong>Address:</strong>  8 hassan maamon  street bulding 4 nasr-city</p>
+        <button onclick="openOrder('1003')">Open</button>
+      </div>
+
+
+      <div class="order-card" data-area="nasr city">
+        <h3>Order #1004</h3>
+        <p><strong>Customer:</strong> Samy</p>
+        <p><strong>Phone:</strong> 01190015432</p>
+        <p><strong>Address:</strong>  9 morad beik street bulding 27 nasr - city</p>
+        <button onclick="openOrder('1004')">Open</button>
+      </div>
+
+
+      
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+
+    <div class="order-card" data-area="mokattam">
+      <h3>Order #1001</h3>
+      <p><strong>Customer:</strong> Hassan</p>
+      <p><strong>Phone:</strong> 01220923333</p>
+      <p><strong>Address:</strong> 14 Street 9 bulding 19-mokattam</p>
+      <button onclick="openOrder('1001')">Open</button>
+    </div>
+
+    <div class="order-card" data-area="mokattam">
+        <h3>Order #1002</h3>
+        <p><strong>Customer:</strong> shady</p>
+        <p><strong>Phone:</strong> 01223873333</p>
+        <p><strong>Address:</strong> street 10 el hadba el wosta bulding 24-mokattem</p>
+        <button onclick="openOrder('1002')">Open</button>
+      </div>
+
+      <div class="order-card" data-area="mokattam">
+        <h3>Order #1003</h3>
+        <p><strong>Customer:</strong> yehia </p>
+        <p><strong>Phone:</strong> 01223763333</p>
+        <p><strong>Address:</strong> 9 el gamaa el hadetha street bulding 13-mokattan</p>
+        <button onclick="openOrder('1003')">Open</button>
+      </div>
+
+
+      <div class="order-card" data-area="mokattam">
+        <h3>Order #1004</h3>
+        <p><strong>Customer:</strong> morad </p>
+        <p><strong>Phone:</strong> 01222533333</p>
+        <p><strong>Address:</strong> street 6 el hadbaa el sofla bulding 27-mokattam</p>
+        <button onclick="openOrder('1004')">Open</button>
+      </div>
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+      <div class="order-card" data-area="obour">
+        <h3>Order #1001</h3>
+        <p><strong>Customer:</strong> Ahmed</p>
+        <p><strong>Phone:</strong> 01220111333</p>
+        <p><strong>Address:</strong> 14 Street 9 bulding 19-obour</p>
+        <button onclick="openOrder('1001')">Open</button>
+      </div>
+  
+      <div class="order-card" data-area="obour">
+          <h3>Order #1002</h3>
+          <p><strong>Customer:</strong> shady</p>
+          <p><strong>Phone:</strong> 012023873333</p>
+          <p><strong>Address:</strong> street 10 el hadba el wosta bulding 24 - obour</p>
+          <button onclick="openOrder('1002')">Open</button>
+        </div>
+  
+        <div class="order-card" data-area="obour">
+          <h3>Order #1003</h3>
+          <p><strong>Customer:</strong> yehia </p>
+          <p><strong>Phone:</strong> 01223763333</p>
+          <p><strong>Address:</strong> 9 el gamaa el hadetha street bulding 13-obour</p>
+          <button onclick="openOrder('1003')">Open</button>
+        </div>
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+<div class="order-card" data-area="maddi">
+    <h3>Order #1001</h3>
+    <p><strong>Customer:</strong> Ahmed</p>
+    <p><strong>Phone:</strong> 01220111333</p>
+    <p><strong>Address:</strong> 14 Street 9 bulding 19-maddi</p>
+    <button onclick="openOrder('1001')">Open</button>
+  </div>
+
+  <div class="order-card" data-area="maddi">
+      <h3>Order #1002</h3>
+      <p><strong>Customer:</strong> shady</p>
+      <p><strong>Phone:</strong> 012023873333</p>
+      <p><strong>Address:</strong> street 10 el hadba el wosta bulding 24-maddi</p>
+      <button onclick="openOrder('1002')">Open</button>
+    </div>
+
+  
+  </div>
+</div>
+
+<div id="orderPopup" class="overlay hidden">
+  <div class="modal">
+    <h2>Order Details</h2>
+    <p id="orderNumber"></p>
+    <button onclick="closeOrder()">Close</button>
+  </div>
+</div>
+
+<script src="delivery.js"></script>
+</body>
+</html>

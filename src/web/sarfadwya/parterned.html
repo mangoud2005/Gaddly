@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Orders</title>
+  <link rel="stylesheet" href="parterned.css">
+</head>
+<body>
+
+<!-- ================= LOGIN POPUP ================= -->
+<div id="loginPopup" class="overlay">
+  <div class="modal">
+    <h2>اختار منطقتك</h2>
+
+    <select id="dArea" >
+      <option value="nasr city">مدينه نصر </option>
+      <option value="obour">العبور</option>
+      <option value="maddi">المعادي</option>
+    </select>
+
+    <button onclick="login()">تأكيد</button>
+  </div>
+</div>
+
+<!-- ================= ORDERS SECTION ================= -->
+<div class="orders-container">
+  <h2>فروعك الاقرب</h2>
+
+  <div id="ordersList">
+
+    <div class="order-card" data-area="nasr city">
+        <h3>صيدليات جبر</h3>
+        <p><strong>Phone:</strong> 01150591444</p>
+        <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/NMcBACBTDP1Zhz998">https://maps.app.goo.gl/NMcBACBTDP1Zhz998</a> </p>
+      </div>
+  
+      <div class="order-card" data-area="nasr city">
+        <h3>صيدليات مصر - فرع عباس العقاد</h3>
+        <p><strong>Phone:</strong>  010 98985046</p>
+        <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/csp1hL6fW5mmGXdp6">https://maps.app.goo.gl/csp1hL6fW5mmGXdp6</a> </p>
+      </div>
+  
+      <div class="order-card" data-area="nasr city">
+        <h3> صيدلية العائلة</h3>
+        <p><strong>Phone:</strong>  015 57147146</p>
+        <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/DVEeQbjdhreewXLx9">https://maps.app.goo.gl/DVEeQbjdhreewXLx9</a> </p>
+      </div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
+    <div class="order-card" data-area="obour">
+        <h3>عدنان - العبور </h3>
+        <p><strong>Phone:</strong> +201158478989</p>
+        <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/RLHkgu2RPAsCrAwh8">https://maps.app.goo.gl/RLHkgu2RPAsCrAwh8</a> </p>
+      </div>
+  
+      <div class="order-card" data-area="obour">
+          <h3> صيدلية د.ضياءالدين </h3>
+          <p><strong>Phone:</strong> +201003550321</p>
+          <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/3po2nd6ksVjy7W2s9">https://maps.app.goo.gl/3po2nd6ksVjy7W2s9</a> </p>
+        </div>
+    
+  
+        <div class="order-card" data-area="obour">
+          <h3> صيدليات العماوى</h3>
+          <p><strong>Phone:</strong> +201070712826</p>
+          <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/zva5JHipuwKB6KfWA">https://maps.app.goo.gl/zva5JHipuwKB6KfWA</a> </p>
+        </div>
+    
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+<div class="order-card" data-area="maddi">
+    <h3>صيدليه الخولي</h3>
+    <p><strong>Phone:</strong> 02 25265297</p>
+    <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/1wDL7UPcccxRwB3M9">https://maps.app.goo.gl/1wDL7UPcccxRwB3M9</a> </p>
+</div>
+
+<div class="order-card" data-area="maddi">
+    <h3>صيدليه الحرية</h3>
+    <p><strong>Phone:</strong>  02 23808178</p>
+    <p><strong>location:</strong> <a target="_blank" href="https://maps.app.goo.gl/34j6QZytXL8RDa267">https://maps.app.goo.gl/34j6QZytXL8RDa267</a> </p>
+</div>
+
+  
+  </div>
+</div>
+
+<div id="orderPopup" class="overlay hidden">
+  <div class="modal">
+    <h2>Order Details</h2>
+    <p id="orderNumber"></p>
+    <button onclick="closeOrder()">Close</button>
+  </div>
+</div>
+
+<script src="parterned.js"></script>
+</body>
+</html>

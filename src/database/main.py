@@ -32,10 +32,11 @@ app = FastAPI(lifespan=lifespan)
 # ---------------------------------------------------------
 # تحديد مسار مجلد web الموجود خارج مجلد الباك إند
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-WEB_DIR = os.path.join(BASE_DIR, "..", "web")
+WEB_DIR = os.path.join(BASE_DIR,"..", "web")
+
 
 # ربط الملفات الثابتة (مثل CSS والصور)
-app.mount("/static", StaticFiles(directory=WEB_DIR), name="static")
+app.mount("/", StaticFiles(directory=WEB_DIR), name="static")
 
 # ربط مجلد قوالب HTML
 templates = Jinja2Templates(directory=WEB_DIR)
@@ -89,10 +90,18 @@ async def submit_patient(
     )
     
     # إعادة رسالة للمستخدم بناءً على نتيجة الحفظ
+
     if success:
-        return {"status": "success", "message": f"✅ {message}"}
+         return templates.TemplateResponse("receptionist/index.html", {
+        "request": request,
+        "success_message": message
+    })
     else:
-        return {"status": "error", "message": f"❌ {message}"}
+        return templates.TemplateResponse("receptionist/index.html", {
+             "request": request,
+             "error_message": message
+    })
+
 
 # ---------------------------------------------------------
 # 5. كود التشغيل

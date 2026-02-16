@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="homedel.css">
+</head>
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "flex";
+    
+        // بعد 2 ثانية يرجع نفس الصفحة
+        setTimeout(function() {
+            window.location.href="../main.html";
+        }, 3000);
+    }
+    </script>
+    
+    
+<body>
+
+<div class="form-container">
+    <input type="text" placeholder="اسمك" required>
+    <input type="text" placeholder="رقم التليفون" required>
+    <input type="text" placeholder="العنوان" required>
+    <button  onclick="showPopup()"> تأكيد الطلب  </button>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>✅ تم تأكيد طلبك</h2>
+        <p>شكراً لاستخدامك خدمتنا</p>
+        <button onclick="closePopup()">إغلاق</button>
+    </div>
+</div>
+
+</body>
+</html>

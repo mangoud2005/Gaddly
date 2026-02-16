@@ -2,7 +2,9 @@ import json
 import os
 from datetime import datetime, timedelta
 
-DB_FILENAME = 'patients_database.json'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILENAME = os.path.join(BASE_DIR, 'patients_database.json')
+
 
 def load_database():
     """قراءة قاعدة البيانات من ملف JSON"""
